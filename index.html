@@ -51,8 +51,14 @@
       color: #8c6f85;
       font-family: Arial, sans-serif;
       font-size: 18px;
+      overflow: hidden;
     }
-
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
     h1 {
       font-size: 30px;
       font-weight: normal;
@@ -131,8 +137,10 @@
     <div class="card">
 
       <div class="video-box">
-        Здесь позже будет видео 💜
-      </div>
+  <video controls playsinline>
+    <source src="main.MP4" type="video/mp4">
+  </video>
+</div>
 
       <h1>
         Сократим шаги навстречу друг другу?
