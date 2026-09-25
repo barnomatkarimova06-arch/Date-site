@@ -123,11 +123,12 @@
     }
 
     .back {
-      margin-top: 25px;
-      background: white;
-      color: #5f3fa5;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
+  display: block;
+  margin: 30px auto 10px;
+  background: white;
+  color: #5f3fa5;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
     .option-card img {
   width: 100%;
   height: 150px;
@@ -187,9 +188,9 @@
     <div class="card">
 
       <div class="video-box">
-  <video autoplay muted loop playsinline>
+ <video id="mainVideo" autoplay muted loop playsinline preload="auto">
   <source src="./main.MP4" type="video/mp4">
-</video>
+</video> 
 </div>
 
       <h1>
@@ -359,6 +360,25 @@ noButton.addEventListener(
 
   card.classList.add("selected");
 }
+    const mainVideo = document.getElementById("mainVideo");
+
+window.addEventListener("load", function() {
+  mainVideo.muted = true;
+
+  const playPromise = mainVideo.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(function() {
+      document.addEventListener(
+        "touchstart",
+        function() {
+          mainVideo.play();
+        },
+        { once: true }
+      );
+    });
+  }
+});
     </script>
 </body>
 </html>
