@@ -3,16 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Приглашение</title>
+
+  <title>Приглашение 💗</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, serif;
+      background:
+        radial-gradient(circle at 50% 25%, #ffb6c8 0%, transparent 32%),
+        linear-gradient(180deg, #fff7f8 0%, #fff1f4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4d2733;
+    }
+
+    .card {
+      width: 92%;
+      max-width: 430px;
+      text-align: center;
+      padding: 30px 22px 40px;
+    }
+
+    .video-box {
+      width: 100%;
+      height: 220px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #e8d9dd;
+      margin-bottom: 28px;
+      box-shadow: 0 15px 40px rgba(120, 60, 80, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      color: #8f717a;
+    }
+
+    h1 {
+      font-size: 27px;
+      font-weight: normal;
+      margin: 0 0 28px;
+      line-height: 1.35;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    button {
+      width: 145px;
+      padding: 17px 20px;
+      border: none;
+      border-radius: 30px;
+      font-size: 19px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .yes {
+      background: #ff688c;
+      color: white;
+      font-weight: bold;
+    }
+
+    .no {
+      background: white;
+      color: #4d2733;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    button:active {
+      transform: scale(0.96);
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>Привет 🤗</h1>
-  <p>Сократим шаги к дркг другу🙃?</p>
+  <div class="card">
 
-  <button>Уже 🏃🏻‍➡️</button>
-  <button>Занят 🏃🏻</button>
+    <div class="video-box">
+      Здесь позже будет видео 💗
+    </div>
+
+    <h1>
+      Сократим шаги навстручу друг другу?
+    </h1>
+
+    <div class="buttons">
+      <button class="yes" onclick="nextPage()">Уже 🏃🏻‍➡️</button>
+      <button class="no">Занят 🏃🏻</button>
+    </div>
+
+  </div>
+
+  <script>
+    function nextPage() {
+      alert("🤭 Скоро здесь будет продолжение");
+    }
+  </script>
 
 </body>
 </html>
