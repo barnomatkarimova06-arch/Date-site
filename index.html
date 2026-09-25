@@ -463,17 +463,39 @@ window.addEventListener("load", function() {
   document.getElementById("screen2").classList.remove("active");
   document.getElementById("screen3").classList.add("active");
 }
-
 function finishChoice() {
   const date = document.getElementById("dateInput").value;
   const time = document.getElementById("timeInput").value;
   const message = document.getElementById("messageInput").value;
+
+  const selectedCard = document.querySelector(".option-card.selected");
+
+  if (!selectedCard) {
+    alert("Сначала выбери вариант 💜");
+    return;
+  }
 
   if (!date || !time) {
     alert("Выбери дату и время 💜");
     return;
   }
 
+  const title = selectedCard.querySelector(".option-title");
+  const choice = title ? title.textContent.trim() : "Не указан";
+
+  const text =
+    "💌 Мой выбор\n\n" +
+    "🎯 " + choice + "\n" +
+    "📅 " + date + "\n" +
+    "🕒 " + time + "\n" +
+    "💬 " + (message || "Без сообщения");
+
+  const telegramUrl =
+    "https://t.me/share/url?url=&text=" +
+    encodeURIComponent(text);
+
+  window.location.href = telegramUrl;
+}
   alert(
     "Готово 💜\n\n" +
     "Дата: " + date +
