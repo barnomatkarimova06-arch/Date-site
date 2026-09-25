@@ -143,7 +143,31 @@
   padding: 10px 6px 6px;
   text-align: left;
 }
+.option-card.selected {
+  border: 3px solid #7c4dff;
+  box-shadow: 0 0 0 4px rgba(124, 77, 255, 0.12);
+}
 
+.option-card.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #7c4dff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.option-card {
+  position: relative;
+}
 .surprise {
   height: 120px;
   border-radius: 18px;
@@ -200,7 +224,7 @@
 
       <div class="options">
 
-  <div class="option-card">
+  <div class="option-card" onclick="selectOption(this)">
    <img src="Piknik .JPG" alt="Творческий пикник"
 style="width:100%; height:150px; object-fit:cover; border-radius:18px; display:block;"> 
     <div class="option-title">
@@ -208,7 +232,7 @@ style="width:100%; height:150px; object-fit:cover; border-radius:18px; display:b
     </div>
   </div>
 
-  <div class="option-card">
+  <div class="option-card" onclick="selectOption(this)">
     <img src="Katok .JPG" alt="Каток"
 style="width:100%; height:150px; object-fit:cover; border-radius:18px; display:block;">
     <div class="option-title">
@@ -216,7 +240,7 @@ style="width:100%; height:150px; object-fit:cover; border-radius:18px; display:b
     </div>
   </div>
 
-  <div class="option-card">
+  <div class="option-card" onclick="selectOption(this)">
     <img src="Carting.JPG" alt="Картинг"
 style="width:100%; height:150px; object-fit:cover; border-radius:18px; display:block;">
     <div class="option-title">
@@ -224,7 +248,7 @@ style="width:100%; height:150px; object-fit:cover; border-radius:18px; display:b
     </div>
   </div>
 
-  <div class="option-card">
+  <div class="option-card" onclick="selectOption(this)">
     <img src="Carting.JPG" alt="Картинг"
 style="width:100%; height:150px; object-fit:cover; border-radius:18px; display:block;">
     <div class="option-title">
@@ -232,7 +256,7 @@ style="width:100%; height:150px; object-fit:cover; border-radius:18px; display:b
     </div>
   </div>
 
-  <div class="option-card">
+  <div class="option-card" onclick="selectOption(this)">
     <div class="surprise">✨</div>
     <div class="option-title">
       ✨Выбери за меня
@@ -327,7 +351,14 @@ noButton.addEventListener(
   "mouseenter",
   moveNoButton
 );
-  </script>
+  
+  function selectOption(card) {
+  document.querySelectorAll(".option-card").forEach(function(item) {
+    item.classList.remove("selected");
+  });
 
+  card.classList.add("selected");
+}
+    </script>
 </body>
 </html>
