@@ -140,11 +140,11 @@
 
       <div class="buttons">
         <button class="yes" onclick="showScreen2()">
-          Уже 💃
+          Уже 🏃🏻‍➡️
         </button>
 
-        <button class="no">
-          Занят 🏃
+        <button class="no" id="noButton">
+          Занят 🏃🏻
         </button>
       </div>
 
@@ -205,6 +205,73 @@
       document.getElementById("screen2").classList.remove("active");
       document.getElementById("screen1").classList.add("active");
     }
+    const noButton = document.getElementById("noButton");
+
+let noCount = 0;
+
+const phrases = [
+  "Точно занят? 😏",
+  "Не верю 😌",
+  "Ещё попытка 😂",
+  "Ты серьёзно? 👀",
+  "Ну всё 😌"
+];
+
+function moveNoButton() {
+
+  noCount++;
+
+  if (noCount >= 6) {
+    noButton.textContent = "Выбора больше нет 😌💜";
+
+    noButton.style.position = "static";
+    noButton.style.width = "100%";
+    noButton.style.marginTop = "14px";
+
+    noButton.disabled = true;
+
+    return;
+  }
+
+  if (noCount <= phrases.length) {
+    noButton.textContent = phrases[noCount - 1];
+  }
+
+  const maxX =
+    window.innerWidth -
+    noButton.offsetWidth -
+    20;
+
+  const maxY =
+    window.innerHeight -
+    noButton.offsetHeight -
+    20;
+
+  const x =
+    Math.max(10, Math.random() * maxX);
+
+  const y =
+    Math.max(10, Math.random() * maxY);
+
+  noButton.style.position = "fixed";
+  noButton.style.left = x + "px";
+  noButton.style.top = y + "px";
+  noButton.style.zIndex = "999";
+}
+
+noButton.addEventListener(
+  "touchstart",
+  function(event) {
+    event.preventDefault();
+    moveNoButton();
+  },
+  { passive: false }
+);
+
+noButton.addEventListener(
+  "mouseenter",
+  moveNoButton
+);
   </script>
 
 </body>
